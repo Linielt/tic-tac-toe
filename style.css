@@ -1,0 +1,17 @@
+#tic-tac-toe-grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 150px);
+    grid-template-rows: repeat(3, 150px);
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+}
+
+.square {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    width: 120px;
+    outline: 1px solid mediumvioletred;
+}
