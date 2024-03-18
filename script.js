@@ -96,13 +96,27 @@ function createPlayer (name, naughtOrCross) {
     return { name, naughtOrCross, chooseGridSpace };
 }
 
-GameManager.start();
+const displayController = (function () {
+    const instantiateGrid = () => {
+        const gridContainer = document.querySelector("#tic-tac-toe-grid-container");    
+        
+        gridContainer.replaceChildren();
+        for (let i = 1; i <= 9; i++) {
+                const square = document.createElement("div");
+                square.id = "square_" + i;
+                square.className = "square";
+                gridContainer.appendChild(square);
+            }
 
-// Horizontal 1 won
-// Horizontal 2 won
-// Horizontal 3 won
-// Vertical 1 won
-// Vertical 2 won
-// Vertical 3 won
-// Diagonal 1 won
-// Diagonal 2 won
+        for (const square of gridContainer.children)
+        {
+            square.addEventListener("click", () => {
+                square.innerHTML = "A";
+            });
+        }
+    }
+    return { instantiateGrid }
+})();
+
+displayController.instantiateGrid();
+// GameManager.start();
